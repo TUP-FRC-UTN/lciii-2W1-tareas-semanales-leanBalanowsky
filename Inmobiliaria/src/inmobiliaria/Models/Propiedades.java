@@ -52,7 +52,7 @@ public abstract class Propiedades {
     public int getCantidadInquilinos() {
         return cantidadInquilinos;
     }
-
+    
     public void setCantidadInquilinos(int cantidadInquilinos) {
         this.cantidadInquilinos = cantidadInquilinos;
     }

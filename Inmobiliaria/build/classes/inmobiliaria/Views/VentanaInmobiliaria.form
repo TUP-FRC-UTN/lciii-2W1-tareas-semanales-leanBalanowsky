@@ -43,27 +43,26 @@
                               <Component id="btnReporte" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="btnAgregarPropiedad" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnCargarLista" min="-2" pref="106" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="197" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtExpensas" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
-                                  <Component id="cboPropiedad" alignment="0" min="-2" pref="136" max="-2" attributes="0"/>
-                                  <Component id="txtDireccion" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
-                                  <Component id="txtHabitaciones" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                                  <Component id="txtPrecio" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="cboGaraje" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cboUsoComercial" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtInquilinos" alignment="0" pref="46" max="32767" attributes="0"/>
+                                  <Component id="btnAgregarPropiedad" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtExpensas" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
+                                          <Component id="cboPropiedad" alignment="0" min="-2" pref="136" max="-2" attributes="0"/>
+                                          <Component id="txtDireccion" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                          <Component id="txtHabitaciones" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                                          <Component id="txtPrecio" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="cboGaraje" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="cboUsoComercial" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtInquilinos" alignment="0" pref="46" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane1" min="-2" pref="445" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" min="-2" pref="445" max="-2" attributes="0"/>
                               <EmptySpace pref="42" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -133,17 +132,9 @@
                   </Group>
                   <Component id="jScrollPane1" alignment="0" min="-2" pref="266" max="-2" attributes="0"/>
               </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                      <Component id="btnAgregarPropiedad" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnCargarLista" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace pref="61" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <Component id="btnAgregarPropiedad" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="64" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblMonto" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -274,14 +265,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="btnCargarLista">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cargar Lista"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCargarListaActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
         <Property name="text" type="java.lang.String" value="Monto  promedio  de  alquileres  de  las  propiedades  en donde vivan 2 inquilinos:"/>

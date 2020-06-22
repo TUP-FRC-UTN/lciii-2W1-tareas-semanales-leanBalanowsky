@@ -54,7 +54,6 @@ public class VentanaInmobiliaria extends javax.swing.JFrame {
         cboGaraje = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         lstPropiedades = new javax.swing.JList<>();
-        btnCargarLista = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         btnReporte = new javax.swing.JButton();
@@ -100,13 +99,6 @@ public class VentanaInmobiliaria extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(lstPropiedades);
 
-        btnCargarLista.setText("Cargar Lista");
-        btnCargarLista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCargarListaActionPerformed(evt);
-            }
-        });
-
         jLabel9.setText("Monto  promedio  de  alquileres  de  las  propiedades  en donde vivan 2 inquilinos:");
 
         jLabel10.setText("Cantidad de casas de 3 habitaciones o más que posean garaje:");
@@ -142,9 +134,7 @@ public class VentanaInmobiliaria extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnAgregarPropiedad)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnCargarLista, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(197, 197, 197))
+                                .addGap(197, 672, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtExpensas, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -208,14 +198,9 @@ public class VentanaInmobiliaria extends javax.swing.JFrame {
                             .addComponent(jLabel8)
                             .addComponent(txtExpensas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(btnAgregarPropiedad))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCargarLista)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addGap(15, 15, 15)
+                .addComponent(btnAgregarPropiedad)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(lblMonto))
@@ -236,7 +221,7 @@ public class VentanaInmobiliaria extends javax.swing.JFrame {
         
         if (tipoPropiedad == 0) {
             txtExpensas.setEnabled(false);
-            txtExpensas.setText(null);
+           // txtExpensas.setText(null);
             cboGaraje.setEnabled(true);
             
         }
@@ -261,52 +246,58 @@ public class VentanaInmobiliaria extends javax.swing.JFrame {
 
     private void btnAgregarPropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPropiedadActionPerformed
         int tipoPropiedad = cboPropiedad.getSelectedIndex();
-
-            String direccion = txtDireccion.getText();
-            int cantidadHabitaciones = Integer.parseInt(txtHabitaciones.getText());
-            double precioBase = Double.parseDouble(txtPrecio.getText());
-            boolean comercial;
-            int inquilinos;
-            int usoComercial = cboUsoComercial.getSelectedIndex();
-            if (usoComercial == 0) {
-                comercial = true;
-                inquilinos = 0;
-            }
-            else{
-                comercial = false;
-                inquilinos = Integer.parseInt(txtInquilinos.getText());
-            }
-            if (tipoPropiedad == 0) 
-            {
-                int garaje = cboGaraje.getSelectedIndex();
-                boolean tieneGaraje;
-                if (garaje == 0) {
-                    tieneGaraje = true;
+            if (!txtDireccion.getText().isBlank()) {
+                String direccion = txtDireccion.getText();
+                int cantidadHabitaciones = Integer.parseInt(txtHabitaciones.getText());
+                double precioBase = Double.parseDouble(txtPrecio.getText());
+                boolean comercial;
+                int inquilinos;
+                int usoComercial = cboUsoComercial.getSelectedIndex();
+                if (usoComercial == 0) {
+                    comercial = true;
+                    inquilinos = 0;
                 }
                 else{
-                    tieneGaraje = false;
+                    comercial = false;
+                    inquilinos = Integer.parseInt(txtInquilinos.getText());
                 }
+                if (tipoPropiedad == 0) 
+                {
+                    int garaje = cboGaraje.getSelectedIndex();
+                    boolean tieneGaraje;
+                    if (garaje == 0) {
+                        tieneGaraje = true;
+                    }
+                    else{
+                        tieneGaraje = false;
+                    }
                 
-                Casa c = new Casa(direccion,cantidadHabitaciones, precioBase, comercial, inquilinos, tieneGaraje);
-                in.cargarLista(c);
+                    Casa c = new Casa(direccion,cantidadHabitaciones, precioBase, comercial, inquilinos, tieneGaraje);
+                    in.cargarLista(c);
                 
                 
+                }
+                else{
+                    double expensas = Double.parseDouble(txtExpensas.getText());
+                    Departamento d = new Departamento(direccion,cantidadHabitaciones, precioBase, comercial, inquilinos, expensas);
+                    in.cargarLista(d);
+                }
             }
             else{
-                double expensas = Double.parseDouble(txtExpensas.getText());
-                Departamento d = new Departamento(direccion,cantidadHabitaciones, precioBase, comercial, inquilinos, expensas);
-                in.cargarLista(d);
+                JOptionPane.showMessageDialog(this, "No amigo");
             }
             
             
+            lstPropiedades.setListData(in.getPropiedades().toArray());
             
+            txtDireccion.setText(null);
+            txtHabitaciones.setText(null);
+            txtPrecio.setText(null);
+            txtInquilinos.setText(null);
+            txtExpensas.setText(null);
         
         
     }//GEN-LAST:event_btnAgregarPropiedadActionPerformed
-
-    private void btnCargarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarListaActionPerformed
-        lstPropiedades.setListData(in.getPropiedades().toArray());
-    }//GEN-LAST:event_btnCargarListaActionPerformed
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         lblMonto.setText(String.valueOf(in.montoPromedio()));
@@ -352,7 +343,6 @@ public class VentanaInmobiliaria extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarPropiedad;
-    private javax.swing.JButton btnCargarLista;
     private javax.swing.JButton btnReporte;
     private javax.swing.JComboBox<String> cboGaraje;
     private javax.swing.JComboBox<String> cboPropiedad;

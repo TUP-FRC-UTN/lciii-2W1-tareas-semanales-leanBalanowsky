@@ -27,7 +27,7 @@ public class Inmobiliaria {
     {
         double promedio = 0;
         for (Propiedades propiedade : propiedades) {
-            if (propiedade.getCantidadInquilinos() >= 2) {
+            if (propiedade.getCantidadInquilinos() == 2) {
                 promedio += propiedade.calcularAlquiler();
             }
         }
